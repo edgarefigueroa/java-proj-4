@@ -1,23 +1,22 @@
-const loginForm = document.getElementById('login-form');
-const loginUsername= document.getElementById('login-username');
-const loginPassword = document.getElementById('login-password');
+const registerForm = document.getElementById('register-form')
+const registerUsername= document.getElementById('register-username')
+const registerPassword = document.getElementById('register-password')
 
 const headers = {
     'Content-Type':'application/json'
 }
 
-const baseUrl = 'http://localhost:8080/api/v1/users';
+const baseUrl = 'http://localhost:8080/api/v1/users'
 
-console.log("Document.cookie :  " + document.cookie );
 const handleSubmit = async (evt) =>{
+    console.log("Register HandleSubmit")
+    console.log("Register .js  base URL :" + baseUrl)
     evt.preventDefault();
-    console.log("Login HandleSubmit")
-    console.log("Login .js  base URL :" + baseUrl)
     let bodyObj = {
-        username: loginUsername.value,
-        password: loginPassword.value
+        username: registerUsername.value,
+        password: registerPassword.value
     }
-    const response = await fetch(`${baseUrl}/login`,{
+    const response = await fetch(`${baseUrl}/register`,{
         method :"POST",
         body:JSON.stringify(bodyObj),
         headers:headers
@@ -25,11 +24,9 @@ const handleSubmit = async (evt) =>{
     .catch(err => console.error(err.message))
 
     const responseArr = await response.json()
-    console.log("Login HandleSubmit after response" + responseArr)
-    console.log(responseArr[1])
+    console.log("Register HandleSubmit" + responseArr)
     if(response.status === 200){
-      document.cookie = `userId=${responseArr[1]}`
-        window.location.replace(responseArr[0])
+        window.location.replace(responseArr[0]);
     }
 }
-loginForm.addEventListener("submit",handleSubmit)
+registerForm.addEventListener('submit',handleSubmit)
