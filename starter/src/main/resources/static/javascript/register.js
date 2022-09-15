@@ -29,4 +29,5 @@ const handleSubmit = async (evt) =>{
         window.location.replace(responseArr[0]);
     }
 }
+//register form
 registerForm.addEventListener('submit',handleSubmit)
