@@ -18,8 +18,7 @@ Heroku was used to host database
 ```
 https://github.com/edgarefigueroa/java-proj-4.git
 ```
-2. 
-* The application.properties file is where all the configuration takes place for configuring a Spring Boot Application. We need to set a few properties here to connect to our external datasource, be sure to replace the Heroku Credentials with the actual credentials for your heroku project:
+2. The application.properties file is where all the configuration takes place for configuring a Spring Boot Application. We need to set a few properties here to connect to our external datasource, be sure to replace the Heroku Credentials with the actual credentials for your heroku project:
 
     * spring.datasource.url=jdbc:postgresql://HEROKU_CREDENTIAL_HOST:5432/HEROKU_DB
 
